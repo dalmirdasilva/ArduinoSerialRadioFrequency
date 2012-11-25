@@ -1,0 +1,26 @@
+########################################################################
+# Syntax Coloring Map For SerialRadioFrequencyAPC220
+########################################################################
+
+########################################################################
+# Datatypes (KEYWORD1)
+########################################################################
+
+SerialRadioFrequencyAPC220	KEYWORD1
+
+########################################################################
+# Methods and Functions (KEYWORD2)
+########################################################################
+
+setFrequency    KEYWORD2
+getFrequency    KEYWORD2
+setAirRate  KEYWORD2
+getAirRate  KEYWORD2
+setPower    KEYWORD2
+getPower    KEYWORD2
+setUartRate KEYWORD2
+getUartRate KEYWORD2
+setSeriesCheckout   KEYWORD2
+getSeriesCheckout   KEYWORD2
+readParameters  KEYWORD2
+writeParameters KEYWORD2
