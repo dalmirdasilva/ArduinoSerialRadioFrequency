@@ -1,7 +1,8 @@
 #include <SoftwareSerial.h>
-#include <RfSerial.h>
+#include <SerialRadioFrequency.h>
+#include <SerialRadioFrequencyAPC220.h>
 
-RfSerial serial(2, 3, 4, 5);
+SerialRadioFrequencyAPC220 serial(2, 3, 4, 5);
 
 void setup() {
 
@@ -22,4 +23,8 @@ void setup() {
 }
 
 void loop() {
+  if (serial.available()) {
+    char b = serial.read();
+    Serial.print(b);
+  }
 }
