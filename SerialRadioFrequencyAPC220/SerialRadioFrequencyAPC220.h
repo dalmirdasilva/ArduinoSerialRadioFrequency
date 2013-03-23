@@ -13,19 +13,19 @@
 #include <SerialRadioFrequency.h>
 
 class SerialRadioFrequencyAPC220 : public SerialRadioFrequency {
-    
+
     /**
      * The EN pin
      */
     unsigned char enPin;
-    
+
     /**
      * The SET pin
      */
     unsigned char setPin;
 
     /**
-     * The device frequence.
+     * The device frequency.
      * 
      * 418MHz-455MHz. Default: 434 MHz.
      */
@@ -58,43 +58,44 @@ class SerialRadioFrequencyAPC220 : public SerialRadioFrequency {
      * Disable, Even Parity, Odd Parity. Default: Disable.
      */
     unsigned char seriesCheckout;
-    
+
     /**
      * Communication buffer.
      */
     unsigned char answer[21];
-    
+
 public:
 
-    SerialRadioFrequencyAPC220(unsigned char rxPin, unsigned char txPin, unsigned char enPin, unsigned char setPin);
-    
+    SerialRadioFrequencyAPC220(unsigned char rxPin, unsigned char txPin,
+            unsigned char enPin, unsigned char setPin);
+
     /**
      * Sets RF frequency.
      * 
      * Unit is KHz, for example 434MHz is 434000.
      * 
      * @param frequency         The frequency.
-     */ 
+     */
     void setFrequency(const char* frequency);
-    
+
     /**
      * Gets RF frequency.
      * 
      * Unit is KHz, for example 434MHz is 434000.
      * 
      * @return                  The frequency.
-     */ 
+     */
     const char* getFrequency();
-    
+
     /**
      * Sets the RF data rate.
      * 
      * 1, 2, 3 and 4 refer to 2400, 4800, 9600, 19200bps separately.
      * 
      * @param airRate             The data rate.
-     */ 
+     */
     void setAirRate(unsigned char airRate);
-    
+
     /**
      * Gets the RF data rate.
      * 
@@ -103,16 +104,16 @@ public:
      * @return                  The data rate.
      */
     unsigned char getAirRate();
-    
+
     /**
      * Sets the power.
      * 
      * 0 to 9, 9 means 20dBm (100mW).
      * 
      * @param power             The power.
-     */ 
+     */
     void setPower(unsigned char power);
-    
+
     /**
      * Gets the power.
      * 
@@ -121,7 +122,7 @@ public:
      * @return                  The power.
      */
     unsigned char getPower();
-    
+
     /**
      * Sets the UART rate.
      * 
@@ -130,7 +131,7 @@ public:
      * @param rate          The UART rate.
      */
     void setUartRate(unsigned char rate);
-    
+
     /**
      * Gets the UART rate.
      * 
@@ -139,7 +140,7 @@ public:
      * @return              The UART rate.
      */
     unsigned char getUartRate();
-    
+
     /**
      * Sets the series checkout.
      * 
@@ -148,7 +149,7 @@ public:
      * @param checkout      The series checkout.
      */
     void setSeriesCheckout(unsigned char checkout);
-    
+
     /**
      * Gets the series checkout.
      * 

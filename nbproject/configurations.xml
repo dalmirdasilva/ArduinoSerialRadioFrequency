@@ -14,12 +14,12 @@
         <df name="datasheet">
         </df>
         <df name="examples">
-          <df name="testing">
-            <in>testing.ino</in>
+          <df name="reading">
+            <in>reading.ino</in>
           </df>
         </df>
-        <in>RadioFrequencyAPC220.cpp</in>
-        <in>RadioFrequencyAPC220.h</in>
+        <in>SerialRadioFrequencyAPC220.cpp</in>
+        <in>SerialRadioFrequencyAPC220.h</in>
       </df>
     </df>
     <logicalFolder name="ExternalFiles"

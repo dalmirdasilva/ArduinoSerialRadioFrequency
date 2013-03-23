@@ -11,7 +11,9 @@
 
 #include "SerialRadioFrequencyAPC220.h"
 
-SerialRadioFrequencyAPC220::SerialRadioFrequencyAPC220(unsigned char rxPin, unsigned char txPin, unsigned char enPin, unsigned char setPin) : SerialRadioFrequency(rxPin, txPin) {
+SerialRadioFrequencyAPC220::SerialRadioFrequencyAPC220(unsigned char rxPin,
+        unsigned char txPin, unsigned char enPin, unsigned char setPin) :
+        SerialRadioFrequency(rxPin, txPin) {
     this->enPin = enPin;
     this->setPin = setPin;
     pinMode(enPin, OUTPUT);
@@ -55,7 +57,8 @@ unsigned char SerialRadioFrequencyAPC220::getUartRate() {
     return this->uartRate;
 }
 
-void SerialRadioFrequencyAPC220::setSeriesCheckout(unsigned char seriesCheckout) {
+void SerialRadioFrequencyAPC220::setSeriesCheckout(
+        unsigned char seriesCheckout) {
     this->seriesCheckout = seriesCheckout;
 }
 
@@ -75,7 +78,8 @@ void SerialRadioFrequencyAPC220::readParameters() {
     }
     delay(200);
     for (unsigned char i = 0; i < 21; i++) {
-        while (!available());
+        while (!available())
+            ;
         answer[i] = (unsigned char) read();
     }
     delay(10);
@@ -84,13 +88,14 @@ void SerialRadioFrequencyAPC220::readParameters() {
         this->frequency[i] = (unsigned char) answer[5 + i];
     }
     this->airRate = (unsigned char) answer[12];
-    this->power =  (unsigned char) answer[14];
-    this->uartRate =  (unsigned char) answer[16];
+    this->power = (unsigned char) answer[14];
+    this->uartRate = (unsigned char) answer[16];
     this->seriesCheckout = (unsigned char) answer[18];
 }
 
 void SerialRadioFrequencyAPC220::writeParameters() {
-    unsigned char cmd[] = {0x57, 0x52, 0x20, 0x34, 0x33, 0x34, 0x30, 0x30, 0x30, 0x20, 0x33, 0x20, 0x39, 0x20, 0x30, 0x20, 0x30, 0x0D, 0x0A};
+    unsigned char cmd[] = {0x57, 0x52, 0x20, 0x34, 0x33, 0x34, 0x30, 0x30, 0x30,
+            0x20, 0x33, 0x20, 0x39, 0x20, 0x30, 0x20, 0x30, 0x0D, 0x0A};
     digitalWrite(this->enPin, HIGH);
     digitalWrite(this->setPin, HIGH);
     delay(50);
@@ -108,7 +113,8 @@ void SerialRadioFrequencyAPC220::writeParameters() {
     }
     delay(200);
     for (unsigned char i = 0; i < 21; i++) {
-        while (!available());
+        while (!available())
+            ;
         answer[i] = (unsigned char) read();
     }
     delay(10);

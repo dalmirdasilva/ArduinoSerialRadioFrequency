@@ -13,7 +13,7 @@
 #include <SoftwareSerial.h>
 
 class SerialRadioFrequency : public SoftwareSerial {
-    
+
 public:
 
     SerialRadioFrequency(unsigned char rxPin, unsigned char txPin);
