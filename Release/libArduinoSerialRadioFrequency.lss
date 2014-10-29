@@ -4,466 +4,518 @@ SerialRadioFrequencyAPC220.o:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .group        00000008  00000000  00000000  00000034  2**2
-                  CONTENTS, READONLY, EXCLUDE, GROUP, LINK_ONCE_DISCARD
-  1 .text         00000332  00000000  00000000  0000003c  2**0
+  0 .text         000003a0  00000000  00000000  00000034  2**0
                   CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
-  2 .data         00000000  00000000  00000000  0000036e  2**0
-                  CONTENTS, ALLOC, LOAD, DATA
-  3 .bss          00000000  00000000  00000000  0000036e  2**0
+  1 .data         00000023  00000000  00000000  000003d4  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, DATA
+  2 .bss          00000000  00000000  00000000  000003f7  2**0
                   ALLOC
-  4 .rodata       00000013  00000000  00000000  0000036e  2**0
-                  CONTENTS, ALLOC, LOAD, READONLY, DATA
-  5 .rodata._ZTV26SerialRadioFrequencyAPC220 00000010  00000000  00000000  00000381  2**0
-                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
-  6 .comment      00000012  00000000  00000000  00000391  2**0
-                  CONTENTS, READONLY
-
 Disassembly of section .text:
 
-00000000 <_ZN26SerialRadioFrequencyAPC220C1Ehhhh>:
-   0:	0f 93       	push	r16
-   2:	1f 93       	push	r17
-   4:	cf 93       	push	r28
-   6:	df 93       	push	r29
-   8:	ec 01       	movw	r28, r24
-   a:	12 2f       	mov	r17, r18
-   c:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC220C1Ehhhh>
-  10:	40 e0       	ldi	r20, 0x00	; 0
-  12:	50 e0       	ldi	r21, 0x00	; 0
-  14:	59 83       	std	Y+1, r21	; 0x01
-  16:	48 83       	st	Y, r20
-  18:	1c 8f       	std	Y+28, r17	; 0x1c
-  1a:	0d 8f       	std	Y+29, r16	; 0x1d
-  1c:	61 e0       	ldi	r22, 0x01	; 1
-  1e:	81 2f       	mov	r24, r17
-  20:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC220C1Ehhhh>
-  24:	61 e0       	ldi	r22, 0x01	; 1
-  26:	80 2f       	mov	r24, r16
-  28:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC220C1Ehhhh>
-  2c:	61 e0       	ldi	r22, 0x01	; 1
-  2e:	81 2f       	mov	r24, r17
-  30:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC220C1Ehhhh>
-  34:	61 e0       	ldi	r22, 0x01	; 1
-  36:	80 2f       	mov	r24, r16
-  38:	df 91       	pop	r29
-  3a:	cf 91       	pop	r28
-  3c:	1f 91       	pop	r17
-  3e:	0f 91       	pop	r16
-  40:	0c 94 00 00 	jmp	0	; 0x0 <_ZN26SerialRadioFrequencyAPC220C1Ehhhh>
+00000000 <_ZN26SerialRadioFrequencyAPC22012setFrequencyEPKc>:
+   0:	dc 01       	movw	r26, r24
+   2:	20 e0       	ldi	r18, 0x00	; 0
+   4:	30 e0       	ldi	r19, 0x00	; 0
+   6:	fb 01       	movw	r30, r22
+   8:	e2 0f       	add	r30, r18
+   a:	f3 1f       	adc	r31, r19
+   c:	80 81       	ld	r24, Z
+   e:	5e 96       	adiw	r26, 0x1e	; 30
+  10:	8c 93       	st	X, r24
+  12:	5e 97       	sbiw	r26, 0x1e	; 30
+  14:	2f 5f       	subi	r18, 0xFF	; 255
+  16:	3f 4f       	sbci	r19, 0xFF	; 255
+  18:	11 96       	adiw	r26, 0x01	; 1
+  1a:	26 30       	cpi	r18, 0x06	; 6
+  1c:	31 05       	cpc	r19, r1
+  1e:	01 f4       	brne	.+0      	; 0x20 <_ZN26SerialRadioFrequencyAPC22012setFrequencyEPKc+0x20>
+  20:	08 95       	ret
 
-00000044 <_ZN26SerialRadioFrequencyAPC22012setFrequencyEPKc>:
-  44:	fb 01       	movw	r30, r22
-  46:	20 e0       	ldi	r18, 0x00	; 0
-  48:	30 e0       	ldi	r19, 0x00	; 0
-  4a:	41 91       	ld	r20, Z+
-  4c:	dc 01       	movw	r26, r24
-  4e:	a2 0f       	add	r26, r18
-  50:	b3 1f       	adc	r27, r19
-  52:	5e 96       	adiw	r26, 0x1e	; 30
-  54:	4c 93       	st	X, r20
-  56:	2f 5f       	subi	r18, 0xFF	; 255
-  58:	3f 4f       	sbci	r19, 0xFF	; 255
-  5a:	26 30       	cpi	r18, 0x06	; 6
-  5c:	31 05       	cpc	r19, r1
-  5e:	01 f4       	brne	.+0      	; 0x60 <_ZN26SerialRadioFrequencyAPC22012setFrequencyEPKc+0x1c>
-  60:	08 95       	ret
+00000022 <_ZN26SerialRadioFrequencyAPC22012getFrequencyEv>:
+  22:	fc 01       	movw	r30, r24
+  24:	14 a2       	std	Z+36, r1	; 0x24
+  26:	7e 96       	adiw	r30, 0x1e	; 30
+  28:	cf 01       	movw	r24, r30
+  2a:	08 95       	ret
 
-00000062 <_ZN26SerialRadioFrequencyAPC22012getFrequencyEv>:
-  62:	fc 01       	movw	r30, r24
-  64:	14 a2       	std	Z+36, r1	; 0x24
-  66:	9c 01       	movw	r18, r24
-  68:	22 5e       	subi	r18, 0xE2	; 226
-  6a:	3f 4f       	sbci	r19, 0xFF	; 255
-  6c:	c9 01       	movw	r24, r18
-  6e:	08 95       	ret
+0000002c <_ZN26SerialRadioFrequencyAPC22010setAirRateEh>:
+  2c:	fc 01       	movw	r30, r24
+  2e:	65 a3       	std	Z+37, r22	; 0x25
+  30:	08 95       	ret
 
-00000070 <_ZN26SerialRadioFrequencyAPC22010setAirRateEh>:
-  70:	fc 01       	movw	r30, r24
-  72:	65 a3       	std	Z+37, r22	; 0x25
-  74:	08 95       	ret
+00000032 <_ZN26SerialRadioFrequencyAPC22010getAirRateEv>:
+  32:	fc 01       	movw	r30, r24
+  34:	85 a1       	ldd	r24, Z+37	; 0x25
+  36:	08 95       	ret
 
-00000076 <_ZN26SerialRadioFrequencyAPC22010getAirRateEv>:
-  76:	fc 01       	movw	r30, r24
-  78:	85 a1       	ldd	r24, Z+37	; 0x25
-  7a:	08 95       	ret
+00000038 <_ZN26SerialRadioFrequencyAPC2208getPowerEv>:
+  38:	fc 01       	movw	r30, r24
+  3a:	86 a1       	ldd	r24, Z+38	; 0x26
+  3c:	08 95       	ret
 
-0000007c <_ZN26SerialRadioFrequencyAPC2208getPowerEv>:
-  7c:	fc 01       	movw	r30, r24
-  7e:	86 a1       	ldd	r24, Z+38	; 0x26
-  80:	08 95       	ret
+0000003e <_ZN26SerialRadioFrequencyAPC2208setPowerEh>:
+  3e:	fc 01       	movw	r30, r24
+  40:	66 a3       	std	Z+38, r22	; 0x26
+  42:	08 95       	ret
 
-00000082 <_ZN26SerialRadioFrequencyAPC2208setPowerEh>:
-  82:	fc 01       	movw	r30, r24
-  84:	66 a3       	std	Z+38, r22	; 0x26
-  86:	08 95       	ret
+00000044 <_ZN26SerialRadioFrequencyAPC22011setUartRateEh>:
+  44:	fc 01       	movw	r30, r24
+  46:	67 a3       	std	Z+39, r22	; 0x27
+  48:	08 95       	ret
 
-00000088 <_ZN26SerialRadioFrequencyAPC22011setUartRateEh>:
-  88:	fc 01       	movw	r30, r24
-  8a:	67 a3       	std	Z+39, r22	; 0x27
-  8c:	08 95       	ret
+0000004a <_ZN26SerialRadioFrequencyAPC22011getUartRateEv>:
+  4a:	fc 01       	movw	r30, r24
+  4c:	87 a1       	ldd	r24, Z+39	; 0x27
+  4e:	08 95       	ret
 
-0000008e <_ZN26SerialRadioFrequencyAPC22011getUartRateEv>:
-  8e:	fc 01       	movw	r30, r24
-  90:	87 a1       	ldd	r24, Z+39	; 0x27
-  92:	08 95       	ret
+00000050 <_ZN26SerialRadioFrequencyAPC22017setSeriesCheckoutEh>:
+  50:	fc 01       	movw	r30, r24
+  52:	60 a7       	std	Z+40, r22	; 0x28
+  54:	08 95       	ret
 
-00000094 <_ZN26SerialRadioFrequencyAPC22017setSeriesCheckoutEh>:
-  94:	fc 01       	movw	r30, r24
-  96:	60 a7       	std	Z+40, r22	; 0x28
-  98:	08 95       	ret
+00000056 <_ZN26SerialRadioFrequencyAPC22017getSeriesCheckoutEv>:
+  56:	fc 01       	movw	r30, r24
+  58:	80 a5       	ldd	r24, Z+40	; 0x28
+  5a:	08 95       	ret
 
-0000009a <_ZN26SerialRadioFrequencyAPC22017getSeriesCheckoutEv>:
-  9a:	fc 01       	movw	r30, r24
-  9c:	80 a5       	ldd	r24, Z+40	; 0x28
-  9e:	08 95       	ret
-
-000000a0 <_ZN26SerialRadioFrequencyAPC22014readParametersEv>:
-  a0:	af 92       	push	r10
-  a2:	bf 92       	push	r11
-  a4:	cf 92       	push	r12
-  a6:	df 92       	push	r13
-  a8:	ef 92       	push	r14
-  aa:	ff 92       	push	r15
-  ac:	0f 93       	push	r16
-  ae:	1f 93       	push	r17
-  b0:	cf 93       	push	r28
-  b2:	df 93       	push	r29
-  b4:	00 d0       	rcall	.+0      	; 0xb6 <_ZN26SerialRadioFrequencyAPC22014readParametersEv+0x16>
-  b6:	00 d0       	rcall	.+0      	; 0xb8 <_ZN26SerialRadioFrequencyAPC22014readParametersEv+0x18>
-  b8:	cd b7       	in	r28, 0x3d	; 61
-  ba:	de b7       	in	r29, 0x3e	; 62
-  bc:	8c 01       	movw	r16, r24
-  be:	82 e5       	ldi	r24, 0x52	; 82
-  c0:	89 83       	std	Y+1, r24	; 0x01
-  c2:	84 e4       	ldi	r24, 0x44	; 68
-  c4:	8a 83       	std	Y+2, r24	; 0x02
-  c6:	8d e0       	ldi	r24, 0x0D	; 13
-  c8:	8b 83       	std	Y+3, r24	; 0x03
-  ca:	8a e0       	ldi	r24, 0x0A	; 10
-  cc:	8c 83       	std	Y+4, r24	; 0x04
-  ce:	61 e0       	ldi	r22, 0x01	; 1
-  d0:	d8 01       	movw	r26, r16
-  d2:	5c 96       	adiw	r26, 0x1c	; 28
-  d4:	8c 91       	ld	r24, X
-  d6:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC220C1Ehhhh>
-  da:	61 e0       	ldi	r22, 0x01	; 1
-  dc:	f8 01       	movw	r30, r16
-  de:	85 8d       	ldd	r24, Z+29	; 0x1d
-  e0:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC220C1Ehhhh>
-  e4:	62 e3       	ldi	r22, 0x32	; 50
-  e6:	70 e0       	ldi	r23, 0x00	; 0
-  e8:	80 e0       	ldi	r24, 0x00	; 0
-  ea:	90 e0       	ldi	r25, 0x00	; 0
-  ec:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC220C1Ehhhh>
-  f0:	60 e0       	ldi	r22, 0x00	; 0
-  f2:	d8 01       	movw	r26, r16
-  f4:	5d 96       	adiw	r26, 0x1d	; 29
-  f6:	8c 91       	ld	r24, X
-  f8:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC220C1Ehhhh>
-  fc:	61 e0       	ldi	r22, 0x01	; 1
-  fe:	70 e0       	ldi	r23, 0x00	; 0
- 100:	80 e0       	ldi	r24, 0x00	; 0
- 102:	90 e0       	ldi	r25, 0x00	; 0
- 104:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC220C1Ehhhh>
- 108:	ee 24       	eor	r14, r14
- 10a:	e3 94       	inc	r14
- 10c:	f1 2c       	mov	r15, r1
- 10e:	ec 0e       	add	r14, r28
- 110:	fd 1e       	adc	r15, r29
- 112:	6e 01       	movw	r12, r28
- 114:	b5 e0       	ldi	r27, 0x05	; 5
- 116:	cb 0e       	add	r12, r27
- 118:	d1 1c       	adc	r13, r1
- 11a:	58 01       	movw	r10, r16
- 11c:	f7 01       	movw	r30, r14
- 11e:	61 91       	ld	r22, Z+
- 120:	7f 01       	movw	r14, r30
- 122:	d8 01       	movw	r26, r16
- 124:	ed 91       	ld	r30, X+
- 126:	fc 91       	ld	r31, X
- 128:	01 90       	ld	r0, Z+
- 12a:	f0 81       	ld	r31, Z
- 12c:	e0 2d       	mov	r30, r0
- 12e:	c5 01       	movw	r24, r10
- 130:	09 95       	icall
- 132:	ec 14       	cp	r14, r12
- 134:	fd 04       	cpc	r15, r13
- 136:	01 f4       	brne	.+0      	; 0x138 <_ZN26SerialRadioFrequencyAPC22014readParametersEv+0x98>
- 138:	68 ec       	ldi	r22, 0xC8	; 200
- 13a:	70 e0       	ldi	r23, 0x00	; 0
- 13c:	80 e0       	ldi	r24, 0x00	; 0
- 13e:	90 e0       	ldi	r25, 0x00	; 0
- 140:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC220C1Ehhhh>
- 144:	e1 2c       	mov	r14, r1
- 146:	f1 2c       	mov	r15, r1
- 148:	d8 01       	movw	r26, r16
- 14a:	ed 91       	ld	r30, X+
- 14c:	fc 91       	ld	r31, X
- 14e:	04 80       	ldd	r0, Z+4	; 0x04
- 150:	f5 81       	ldd	r31, Z+5	; 0x05
- 152:	e0 2d       	mov	r30, r0
- 154:	c5 01       	movw	r24, r10
- 156:	09 95       	icall
- 158:	89 2b       	or	r24, r25
- 15a:	01 f0       	breq	.+0      	; 0x15c <_ZN26SerialRadioFrequencyAPC22014readParametersEv+0xbc>
- 15c:	d8 01       	movw	r26, r16
- 15e:	ed 91       	ld	r30, X+
- 160:	fc 91       	ld	r31, X
- 162:	06 80       	ldd	r0, Z+6	; 0x06
- 164:	f7 81       	ldd	r31, Z+7	; 0x07
- 166:	e0 2d       	mov	r30, r0
- 168:	c5 01       	movw	r24, r10
- 16a:	09 95       	icall
- 16c:	f8 01       	movw	r30, r16
- 16e:	ee 0d       	add	r30, r14
- 170:	ff 1d       	adc	r31, r15
- 172:	81 a7       	std	Z+41, r24	; 0x29
- 174:	bf ef       	ldi	r27, 0xFF	; 255
- 176:	eb 1a       	sub	r14, r27
- 178:	fb 0a       	sbc	r15, r27
- 17a:	e5 e1       	ldi	r30, 0x15	; 21
- 17c:	ee 16       	cp	r14, r30
- 17e:	f1 04       	cpc	r15, r1
- 180:	01 f4       	brne	.+0      	; 0x182 <_ZN26SerialRadioFrequencyAPC22014readParametersEv+0xe2>
- 182:	6a e0       	ldi	r22, 0x0A	; 10
- 184:	70 e0       	ldi	r23, 0x00	; 0
- 186:	80 e0       	ldi	r24, 0x00	; 0
- 188:	90 e0       	ldi	r25, 0x00	; 0
- 18a:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC220C1Ehhhh>
+0000005c <_ZN26SerialRadioFrequencyAPC22015writeParametersEv>:
+  5c:	af 92       	push	r10
+  5e:	bf 92       	push	r11
+  60:	cf 92       	push	r12
+  62:	df 92       	push	r13
+  64:	ef 92       	push	r14
+  66:	ff 92       	push	r15
+  68:	0f 93       	push	r16
+  6a:	1f 93       	push	r17
+  6c:	df 93       	push	r29
+  6e:	cf 93       	push	r28
+  70:	cd b7       	in	r28, 0x3d	; 61
+  72:	de b7       	in	r29, 0x3e	; 62
+  74:	63 97       	sbiw	r28, 0x13	; 19
+  76:	0f b6       	in	r0, 0x3f	; 63
+  78:	f8 94       	cli
+  7a:	de bf       	out	0x3e, r29	; 62
+  7c:	0f be       	out	0x3f, r0	; 63
+  7e:	cd bf       	out	0x3d, r28	; 61
+  80:	8c 01       	movw	r16, r24
+  82:	de 01       	movw	r26, r28
+  84:	11 96       	adiw	r26, 0x01	; 1
+  86:	e0 e0       	ldi	r30, 0x00	; 0
+  88:	f0 e0       	ldi	r31, 0x00	; 0
+  8a:	83 e1       	ldi	r24, 0x13	; 19
+  8c:	01 90       	ld	r0, Z+
+  8e:	0d 92       	st	X+, r0
+  90:	81 50       	subi	r24, 0x01	; 1
+  92:	01 f4       	brne	.+0      	; 0x94 <_ZN26SerialRadioFrequencyAPC22015writeParametersEv+0x38>
+  94:	d8 01       	movw	r26, r16
+  96:	5c 96       	adiw	r26, 0x1c	; 28
+  98:	8c 91       	ld	r24, X
+  9a:	61 e0       	ldi	r22, 0x01	; 1
+  9c:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC22012setFrequencyEPKc>
+  a0:	f8 01       	movw	r30, r16
+  a2:	85 8d       	ldd	r24, Z+29	; 0x1d
+  a4:	61 e0       	ldi	r22, 0x01	; 1
+  a6:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC22012setFrequencyEPKc>
+  aa:	62 e3       	ldi	r22, 0x32	; 50
+  ac:	70 e0       	ldi	r23, 0x00	; 0
+  ae:	80 e0       	ldi	r24, 0x00	; 0
+  b0:	90 e0       	ldi	r25, 0x00	; 0
+  b2:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC22012setFrequencyEPKc>
+  b6:	d8 01       	movw	r26, r16
+  b8:	5d 96       	adiw	r26, 0x1d	; 29
+  ba:	8c 91       	ld	r24, X
+  bc:	60 e0       	ldi	r22, 0x00	; 0
+  be:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC22012setFrequencyEPKc>
+  c2:	61 e0       	ldi	r22, 0x01	; 1
+  c4:	70 e0       	ldi	r23, 0x00	; 0
+  c6:	80 e0       	ldi	r24, 0x00	; 0
+  c8:	90 e0       	ldi	r25, 0x00	; 0
+  ca:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC22012setFrequencyEPKc>
+  ce:	d8 01       	movw	r26, r16
+  d0:	fe 01       	movw	r30, r28
+  d2:	34 96       	adiw	r30, 0x04	; 4
+  d4:	9e 01       	movw	r18, r28
+  d6:	26 5f       	subi	r18, 0xF6	; 246
+  d8:	3f 4f       	sbci	r19, 0xFF	; 255
+  da:	5e 96       	adiw	r26, 0x1e	; 30
+  dc:	8c 91       	ld	r24, X
+  de:	5e 97       	sbiw	r26, 0x1e	; 30
+  e0:	81 93       	st	Z+, r24
+  e2:	11 96       	adiw	r26, 0x01	; 1
+  e4:	e2 17       	cp	r30, r18
+  e6:	f3 07       	cpc	r31, r19
+  e8:	01 f4       	brne	.+0      	; 0xea <_ZN26SerialRadioFrequencyAPC22015writeParametersEv+0x8e>
+  ea:	f8 01       	movw	r30, r16
+  ec:	85 a1       	ldd	r24, Z+37	; 0x25
+  ee:	8b 87       	std	Y+11, r24	; 0x0b
+  f0:	86 a1       	ldd	r24, Z+38	; 0x26
+  f2:	8d 87       	std	Y+13, r24	; 0x0d
+  f4:	87 a1       	ldd	r24, Z+39	; 0x27
+  f6:	8f 87       	std	Y+15, r24	; 0x0f
+  f8:	80 a5       	ldd	r24, Z+40	; 0x28
+  fa:	89 8b       	std	Y+17, r24	; 0x11
+  fc:	68 01       	movw	r12, r16
+  fe:	7e 01       	movw	r14, r28
+ 100:	08 94       	sec
+ 102:	e1 1c       	adc	r14, r1
+ 104:	f1 1c       	adc	r15, r1
+ 106:	24 e1       	ldi	r18, 0x14	; 20
+ 108:	a2 2e       	mov	r10, r18
+ 10a:	b1 2c       	mov	r11, r1
+ 10c:	ac 0e       	add	r10, r28
+ 10e:	bd 1e       	adc	r11, r29
+ 110:	d8 01       	movw	r26, r16
+ 112:	ed 91       	ld	r30, X+
+ 114:	fc 91       	ld	r31, X
+ 116:	01 90       	ld	r0, Z+
+ 118:	f0 81       	ld	r31, Z
+ 11a:	e0 2d       	mov	r30, r0
+ 11c:	c6 01       	movw	r24, r12
+ 11e:	d7 01       	movw	r26, r14
+ 120:	6d 91       	ld	r22, X+
+ 122:	7d 01       	movw	r14, r26
+ 124:	09 95       	icall
+ 126:	ea 14       	cp	r14, r10
+ 128:	fb 04       	cpc	r15, r11
+ 12a:	01 f4       	brne	.+0      	; 0x12c <_ZN26SerialRadioFrequencyAPC22015writeParametersEv+0xd0>
+ 12c:	68 ec       	ldi	r22, 0xC8	; 200
+ 12e:	70 e0       	ldi	r23, 0x00	; 0
+ 130:	80 e0       	ldi	r24, 0x00	; 0
+ 132:	90 e0       	ldi	r25, 0x00	; 0
+ 134:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC22012setFrequencyEPKc>
+ 138:	99 e2       	ldi	r25, 0x29	; 41
+ 13a:	e9 2e       	mov	r14, r25
+ 13c:	f1 2c       	mov	r15, r1
+ 13e:	e0 0e       	add	r14, r16
+ 140:	f1 1e       	adc	r15, r17
+ 142:	8e e3       	ldi	r24, 0x3E	; 62
+ 144:	a8 2e       	mov	r10, r24
+ 146:	b1 2c       	mov	r11, r1
+ 148:	a0 0e       	add	r10, r16
+ 14a:	b1 1e       	adc	r11, r17
+ 14c:	d8 01       	movw	r26, r16
+ 14e:	ed 91       	ld	r30, X+
+ 150:	fc 91       	ld	r31, X
+ 152:	04 80       	ldd	r0, Z+4	; 0x04
+ 154:	f5 81       	ldd	r31, Z+5	; 0x05
+ 156:	e0 2d       	mov	r30, r0
+ 158:	c6 01       	movw	r24, r12
+ 15a:	09 95       	icall
+ 15c:	89 2b       	or	r24, r25
+ 15e:	01 f0       	breq	.+0      	; 0x160 <_ZN26SerialRadioFrequencyAPC22015writeParametersEv+0x104>
+ 160:	d8 01       	movw	r26, r16
+ 162:	ed 91       	ld	r30, X+
+ 164:	fc 91       	ld	r31, X
+ 166:	06 80       	ldd	r0, Z+6	; 0x06
+ 168:	f7 81       	ldd	r31, Z+7	; 0x07
+ 16a:	e0 2d       	mov	r30, r0
+ 16c:	c6 01       	movw	r24, r12
+ 16e:	09 95       	icall
+ 170:	f7 01       	movw	r30, r14
+ 172:	81 93       	st	Z+, r24
+ 174:	7f 01       	movw	r14, r30
+ 176:	ea 15       	cp	r30, r10
+ 178:	fb 05       	cpc	r31, r11
+ 17a:	01 f4       	brne	.+0      	; 0x17c <_ZN26SerialRadioFrequencyAPC22015writeParametersEv+0x120>
+ 17c:	6a e0       	ldi	r22, 0x0A	; 10
+ 17e:	70 e0       	ldi	r23, 0x00	; 0
+ 180:	80 e0       	ldi	r24, 0x00	; 0
+ 182:	90 e0       	ldi	r25, 0x00	; 0
+ 184:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC22012setFrequencyEPKc>
+ 188:	d8 01       	movw	r26, r16
+ 18a:	5d 96       	adiw	r26, 0x1d	; 29
+ 18c:	8c 91       	ld	r24, X
  18e:	61 e0       	ldi	r22, 0x01	; 1
- 190:	d8 01       	movw	r26, r16
- 192:	5d 96       	adiw	r26, 0x1d	; 29
- 194:	8c 91       	ld	r24, X
- 196:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC220C1Ehhhh>
- 19a:	80 e0       	ldi	r24, 0x00	; 0
- 19c:	90 e0       	ldi	r25, 0x00	; 0
- 19e:	f8 01       	movw	r30, r16
- 1a0:	e8 0f       	add	r30, r24
- 1a2:	f9 1f       	adc	r31, r25
- 1a4:	26 a5       	ldd	r18, Z+46	; 0x2e
- 1a6:	26 8f       	std	Z+30, r18	; 0x1e
- 1a8:	01 96       	adiw	r24, 0x01	; 1
- 1aa:	86 30       	cpi	r24, 0x06	; 6
- 1ac:	91 05       	cpc	r25, r1
- 1ae:	01 f4       	brne	.+0      	; 0x1b0 <_ZN26SerialRadioFrequencyAPC22014readParametersEv+0x110>
- 1b0:	f8 01       	movw	r30, r16
- 1b2:	85 a9       	ldd	r24, Z+53	; 0x35
- 1b4:	85 a3       	std	Z+37, r24	; 0x25
- 1b6:	87 a9       	ldd	r24, Z+55	; 0x37
- 1b8:	86 a3       	std	Z+38, r24	; 0x26
- 1ba:	81 ad       	ldd	r24, Z+57	; 0x39
- 1bc:	87 a3       	std	Z+39, r24	; 0x27
- 1be:	83 ad       	ldd	r24, Z+59	; 0x3b
- 1c0:	80 a7       	std	Z+40, r24	; 0x28
- 1c2:	0f 90       	pop	r0
- 1c4:	0f 90       	pop	r0
- 1c6:	0f 90       	pop	r0
- 1c8:	0f 90       	pop	r0
- 1ca:	df 91       	pop	r29
- 1cc:	cf 91       	pop	r28
- 1ce:	1f 91       	pop	r17
- 1d0:	0f 91       	pop	r16
- 1d2:	ff 90       	pop	r15
- 1d4:	ef 90       	pop	r14
- 1d6:	df 90       	pop	r13
- 1d8:	cf 90       	pop	r12
- 1da:	bf 90       	pop	r11
- 1dc:	af 90       	pop	r10
- 1de:	08 95       	ret
+ 190:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC22012setFrequencyEPKc>
+ 194:	63 96       	adiw	r28, 0x13	; 19
+ 196:	0f b6       	in	r0, 0x3f	; 63
+ 198:	f8 94       	cli
+ 19a:	de bf       	out	0x3e, r29	; 62
+ 19c:	0f be       	out	0x3f, r0	; 63
+ 19e:	cd bf       	out	0x3d, r28	; 61
+ 1a0:	cf 91       	pop	r28
+ 1a2:	df 91       	pop	r29
+ 1a4:	1f 91       	pop	r17
+ 1a6:	0f 91       	pop	r16
+ 1a8:	ff 90       	pop	r15
+ 1aa:	ef 90       	pop	r14
+ 1ac:	df 90       	pop	r13
+ 1ae:	cf 90       	pop	r12
+ 1b0:	bf 90       	pop	r11
+ 1b2:	af 90       	pop	r10
+ 1b4:	08 95       	ret
 
-000001e0 <_ZN26SerialRadioFrequencyAPC22015writeParametersEv>:
- 1e0:	af 92       	push	r10
- 1e2:	bf 92       	push	r11
- 1e4:	cf 92       	push	r12
- 1e6:	df 92       	push	r13
- 1e8:	ef 92       	push	r14
- 1ea:	ff 92       	push	r15
- 1ec:	0f 93       	push	r16
- 1ee:	1f 93       	push	r17
- 1f0:	cf 93       	push	r28
- 1f2:	df 93       	push	r29
- 1f4:	cd b7       	in	r28, 0x3d	; 61
- 1f6:	de b7       	in	r29, 0x3e	; 62
- 1f8:	63 97       	sbiw	r28, 0x13	; 19
- 1fa:	0f b6       	in	r0, 0x3f	; 63
- 1fc:	f8 94       	cli
- 1fe:	de bf       	out	0x3e, r29	; 62
- 200:	0f be       	out	0x3f, r0	; 63
- 202:	cd bf       	out	0x3d, r28	; 61
- 204:	8c 01       	movw	r16, r24
- 206:	83 e1       	ldi	r24, 0x13	; 19
- 208:	e0 e0       	ldi	r30, 0x00	; 0
- 20a:	f0 e0       	ldi	r31, 0x00	; 0
- 20c:	de 01       	movw	r26, r28
- 20e:	11 96       	adiw	r26, 0x01	; 1
- 210:	01 90       	ld	r0, Z+
- 212:	0d 92       	st	X+, r0
- 214:	8a 95       	dec	r24
- 216:	01 f4       	brne	.+0      	; 0x218 <_ZN26SerialRadioFrequencyAPC22015writeParametersEv+0x38>
- 218:	61 e0       	ldi	r22, 0x01	; 1
- 21a:	d8 01       	movw	r26, r16
- 21c:	5c 96       	adiw	r26, 0x1c	; 28
- 21e:	8c 91       	ld	r24, X
- 220:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC220C1Ehhhh>
- 224:	61 e0       	ldi	r22, 0x01	; 1
- 226:	f8 01       	movw	r30, r16
- 228:	85 8d       	ldd	r24, Z+29	; 0x1d
- 22a:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC220C1Ehhhh>
- 22e:	62 e3       	ldi	r22, 0x32	; 50
- 230:	70 e0       	ldi	r23, 0x00	; 0
- 232:	80 e0       	ldi	r24, 0x00	; 0
- 234:	90 e0       	ldi	r25, 0x00	; 0
- 236:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC220C1Ehhhh>
- 23a:	60 e0       	ldi	r22, 0x00	; 0
- 23c:	d8 01       	movw	r26, r16
- 23e:	5d 96       	adiw	r26, 0x1d	; 29
- 240:	8c 91       	ld	r24, X
- 242:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC220C1Ehhhh>
- 246:	61 e0       	ldi	r22, 0x01	; 1
- 248:	70 e0       	ldi	r23, 0x00	; 0
- 24a:	80 e0       	ldi	r24, 0x00	; 0
- 24c:	90 e0       	ldi	r25, 0x00	; 0
- 24e:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC220C1Ehhhh>
- 252:	fe 01       	movw	r30, r28
- 254:	34 96       	adiw	r30, 0x04	; 4
- 256:	80 e0       	ldi	r24, 0x00	; 0
- 258:	90 e0       	ldi	r25, 0x00	; 0
- 25a:	d8 01       	movw	r26, r16
- 25c:	a8 0f       	add	r26, r24
- 25e:	b9 1f       	adc	r27, r25
- 260:	5e 96       	adiw	r26, 0x1e	; 30
- 262:	2c 91       	ld	r18, X
- 264:	21 93       	st	Z+, r18
- 266:	01 96       	adiw	r24, 0x01	; 1
- 268:	86 30       	cpi	r24, 0x06	; 6
- 26a:	91 05       	cpc	r25, r1
- 26c:	01 f4       	brne	.+0      	; 0x26e <_ZN26SerialRadioFrequencyAPC22015writeParametersEv+0x8e>
- 26e:	f8 01       	movw	r30, r16
- 270:	85 a1       	ldd	r24, Z+37	; 0x25
- 272:	8b 87       	std	Y+11, r24	; 0x0b
- 274:	86 a1       	ldd	r24, Z+38	; 0x26
- 276:	8d 87       	std	Y+13, r24	; 0x0d
- 278:	87 a1       	ldd	r24, Z+39	; 0x27
- 27a:	8f 87       	std	Y+15, r24	; 0x0f
- 27c:	80 a5       	ldd	r24, Z+40	; 0x28
- 27e:	89 8b       	std	Y+17, r24	; 0x11
- 280:	ee 24       	eor	r14, r14
- 282:	e3 94       	inc	r14
- 284:	f1 2c       	mov	r15, r1
- 286:	ec 0e       	add	r14, r28
- 288:	fd 1e       	adc	r15, r29
- 28a:	6e 01       	movw	r12, r28
- 28c:	f4 e1       	ldi	r31, 0x14	; 20
- 28e:	cf 0e       	add	r12, r31
- 290:	d1 1c       	adc	r13, r1
- 292:	58 01       	movw	r10, r16
- 294:	d7 01       	movw	r26, r14
- 296:	6d 91       	ld	r22, X+
- 298:	7d 01       	movw	r14, r26
- 29a:	d8 01       	movw	r26, r16
- 29c:	ed 91       	ld	r30, X+
- 29e:	fc 91       	ld	r31, X
- 2a0:	01 90       	ld	r0, Z+
- 2a2:	f0 81       	ld	r31, Z
- 2a4:	e0 2d       	mov	r30, r0
- 2a6:	c5 01       	movw	r24, r10
- 2a8:	09 95       	icall
- 2aa:	ec 14       	cp	r14, r12
- 2ac:	fd 04       	cpc	r15, r13
- 2ae:	01 f4       	brne	.+0      	; 0x2b0 <_ZN26SerialRadioFrequencyAPC22015writeParametersEv+0xd0>
- 2b0:	68 ec       	ldi	r22, 0xC8	; 200
- 2b2:	70 e0       	ldi	r23, 0x00	; 0
- 2b4:	80 e0       	ldi	r24, 0x00	; 0
- 2b6:	90 e0       	ldi	r25, 0x00	; 0
- 2b8:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC220C1Ehhhh>
- 2bc:	e1 2c       	mov	r14, r1
- 2be:	f1 2c       	mov	r15, r1
- 2c0:	d8 01       	movw	r26, r16
- 2c2:	ed 91       	ld	r30, X+
- 2c4:	fc 91       	ld	r31, X
- 2c6:	04 80       	ldd	r0, Z+4	; 0x04
- 2c8:	f5 81       	ldd	r31, Z+5	; 0x05
- 2ca:	e0 2d       	mov	r30, r0
- 2cc:	c5 01       	movw	r24, r10
- 2ce:	09 95       	icall
- 2d0:	89 2b       	or	r24, r25
- 2d2:	01 f0       	breq	.+0      	; 0x2d4 <_ZN26SerialRadioFrequencyAPC22015writeParametersEv+0xf4>
- 2d4:	d8 01       	movw	r26, r16
- 2d6:	ed 91       	ld	r30, X+
- 2d8:	fc 91       	ld	r31, X
- 2da:	06 80       	ldd	r0, Z+6	; 0x06
- 2dc:	f7 81       	ldd	r31, Z+7	; 0x07
- 2de:	e0 2d       	mov	r30, r0
- 2e0:	c5 01       	movw	r24, r10
- 2e2:	09 95       	icall
- 2e4:	f8 01       	movw	r30, r16
- 2e6:	ee 0d       	add	r30, r14
- 2e8:	ff 1d       	adc	r31, r15
- 2ea:	81 a7       	std	Z+41, r24	; 0x29
- 2ec:	bf ef       	ldi	r27, 0xFF	; 255
- 2ee:	eb 1a       	sub	r14, r27
- 2f0:	fb 0a       	sbc	r15, r27
- 2f2:	e5 e1       	ldi	r30, 0x15	; 21
- 2f4:	ee 16       	cp	r14, r30
- 2f6:	f1 04       	cpc	r15, r1
- 2f8:	01 f4       	brne	.+0      	; 0x2fa <_ZN26SerialRadioFrequencyAPC22015writeParametersEv+0x11a>
- 2fa:	6a e0       	ldi	r22, 0x0A	; 10
- 2fc:	70 e0       	ldi	r23, 0x00	; 0
- 2fe:	80 e0       	ldi	r24, 0x00	; 0
- 300:	90 e0       	ldi	r25, 0x00	; 0
- 302:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC220C1Ehhhh>
- 306:	61 e0       	ldi	r22, 0x01	; 1
- 308:	d8 01       	movw	r26, r16
- 30a:	5d 96       	adiw	r26, 0x1d	; 29
- 30c:	8c 91       	ld	r24, X
- 30e:	63 96       	adiw	r28, 0x13	; 19
- 310:	0f b6       	in	r0, 0x3f	; 63
- 312:	f8 94       	cli
- 314:	de bf       	out	0x3e, r29	; 62
- 316:	0f be       	out	0x3f, r0	; 63
- 318:	cd bf       	out	0x3d, r28	; 61
- 31a:	df 91       	pop	r29
- 31c:	cf 91       	pop	r28
- 31e:	1f 91       	pop	r17
- 320:	0f 91       	pop	r16
- 322:	ff 90       	pop	r15
- 324:	ef 90       	pop	r14
- 326:	df 90       	pop	r13
- 328:	cf 90       	pop	r12
- 32a:	bf 90       	pop	r11
- 32c:	af 90       	pop	r10
- 32e:	0c 94 00 00 	jmp	0	; 0x0 <_ZN26SerialRadioFrequencyAPC220C1Ehhhh>
+000001b6 <_ZN26SerialRadioFrequencyAPC22014readParametersEv>:
+ 1b6:	af 92       	push	r10
+ 1b8:	bf 92       	push	r11
+ 1ba:	cf 92       	push	r12
+ 1bc:	df 92       	push	r13
+ 1be:	ef 92       	push	r14
+ 1c0:	ff 92       	push	r15
+ 1c2:	0f 93       	push	r16
+ 1c4:	1f 93       	push	r17
+ 1c6:	df 93       	push	r29
+ 1c8:	cf 93       	push	r28
+ 1ca:	00 d0       	rcall	.+0      	; 0x1cc <_ZN26SerialRadioFrequencyAPC22014readParametersEv+0x16>
+ 1cc:	00 d0       	rcall	.+0      	; 0x1ce <_ZN26SerialRadioFrequencyAPC22014readParametersEv+0x18>
+ 1ce:	cd b7       	in	r28, 0x3d	; 61
+ 1d0:	de b7       	in	r29, 0x3e	; 62
+ 1d2:	8c 01       	movw	r16, r24
+ 1d4:	82 e5       	ldi	r24, 0x52	; 82
+ 1d6:	89 83       	std	Y+1, r24	; 0x01
+ 1d8:	84 e4       	ldi	r24, 0x44	; 68
+ 1da:	8a 83       	std	Y+2, r24	; 0x02
+ 1dc:	8d e0       	ldi	r24, 0x0D	; 13
+ 1de:	8b 83       	std	Y+3, r24	; 0x03
+ 1e0:	8a e0       	ldi	r24, 0x0A	; 10
+ 1e2:	8c 83       	std	Y+4, r24	; 0x04
+ 1e4:	d8 01       	movw	r26, r16
+ 1e6:	5c 96       	adiw	r26, 0x1c	; 28
+ 1e8:	8c 91       	ld	r24, X
+ 1ea:	61 e0       	ldi	r22, 0x01	; 1
+ 1ec:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC22012setFrequencyEPKc>
+ 1f0:	f8 01       	movw	r30, r16
+ 1f2:	85 8d       	ldd	r24, Z+29	; 0x1d
+ 1f4:	61 e0       	ldi	r22, 0x01	; 1
+ 1f6:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC22012setFrequencyEPKc>
+ 1fa:	62 e3       	ldi	r22, 0x32	; 50
+ 1fc:	70 e0       	ldi	r23, 0x00	; 0
+ 1fe:	80 e0       	ldi	r24, 0x00	; 0
+ 200:	90 e0       	ldi	r25, 0x00	; 0
+ 202:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC22012setFrequencyEPKc>
+ 206:	d8 01       	movw	r26, r16
+ 208:	5d 96       	adiw	r26, 0x1d	; 29
+ 20a:	8c 91       	ld	r24, X
+ 20c:	60 e0       	ldi	r22, 0x00	; 0
+ 20e:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC22012setFrequencyEPKc>
+ 212:	61 e0       	ldi	r22, 0x01	; 1
+ 214:	70 e0       	ldi	r23, 0x00	; 0
+ 216:	80 e0       	ldi	r24, 0x00	; 0
+ 218:	90 e0       	ldi	r25, 0x00	; 0
+ 21a:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC22012setFrequencyEPKc>
+ 21e:	58 01       	movw	r10, r16
+ 220:	d8 01       	movw	r26, r16
+ 222:	ed 91       	ld	r30, X+
+ 224:	fc 91       	ld	r31, X
+ 226:	01 90       	ld	r0, Z+
+ 228:	f0 81       	ld	r31, Z
+ 22a:	e0 2d       	mov	r30, r0
+ 22c:	c8 01       	movw	r24, r16
+ 22e:	69 81       	ldd	r22, Y+1	; 0x01
+ 230:	09 95       	icall
+ 232:	d8 01       	movw	r26, r16
+ 234:	ed 91       	ld	r30, X+
+ 236:	fc 91       	ld	r31, X
+ 238:	01 90       	ld	r0, Z+
+ 23a:	f0 81       	ld	r31, Z
+ 23c:	e0 2d       	mov	r30, r0
+ 23e:	c8 01       	movw	r24, r16
+ 240:	6a 81       	ldd	r22, Y+2	; 0x02
+ 242:	09 95       	icall
+ 244:	d8 01       	movw	r26, r16
+ 246:	ed 91       	ld	r30, X+
+ 248:	fc 91       	ld	r31, X
+ 24a:	01 90       	ld	r0, Z+
+ 24c:	f0 81       	ld	r31, Z
+ 24e:	e0 2d       	mov	r30, r0
+ 250:	c8 01       	movw	r24, r16
+ 252:	6b 81       	ldd	r22, Y+3	; 0x03
+ 254:	09 95       	icall
+ 256:	d8 01       	movw	r26, r16
+ 258:	ed 91       	ld	r30, X+
+ 25a:	fc 91       	ld	r31, X
+ 25c:	01 90       	ld	r0, Z+
+ 25e:	f0 81       	ld	r31, Z
+ 260:	e0 2d       	mov	r30, r0
+ 262:	c8 01       	movw	r24, r16
+ 264:	6a e0       	ldi	r22, 0x0A	; 10
+ 266:	09 95       	icall
+ 268:	68 ec       	ldi	r22, 0xC8	; 200
+ 26a:	70 e0       	ldi	r23, 0x00	; 0
+ 26c:	80 e0       	ldi	r24, 0x00	; 0
+ 26e:	90 e0       	ldi	r25, 0x00	; 0
+ 270:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC22012setFrequencyEPKc>
+ 274:	49 e2       	ldi	r20, 0x29	; 41
+ 276:	e4 2e       	mov	r14, r20
+ 278:	f1 2c       	mov	r15, r1
+ 27a:	e0 0e       	add	r14, r16
+ 27c:	f1 1e       	adc	r15, r17
+ 27e:	3e e3       	ldi	r19, 0x3E	; 62
+ 280:	c3 2e       	mov	r12, r19
+ 282:	d1 2c       	mov	r13, r1
+ 284:	c0 0e       	add	r12, r16
+ 286:	d1 1e       	adc	r13, r17
+ 288:	d8 01       	movw	r26, r16
+ 28a:	ed 91       	ld	r30, X+
+ 28c:	fc 91       	ld	r31, X
+ 28e:	04 80       	ldd	r0, Z+4	; 0x04
+ 290:	f5 81       	ldd	r31, Z+5	; 0x05
+ 292:	e0 2d       	mov	r30, r0
+ 294:	c5 01       	movw	r24, r10
+ 296:	09 95       	icall
+ 298:	89 2b       	or	r24, r25
+ 29a:	01 f0       	breq	.+0      	; 0x29c <_ZN26SerialRadioFrequencyAPC22014readParametersEv+0xe6>
+ 29c:	d8 01       	movw	r26, r16
+ 29e:	ed 91       	ld	r30, X+
+ 2a0:	fc 91       	ld	r31, X
+ 2a2:	06 80       	ldd	r0, Z+6	; 0x06
+ 2a4:	f7 81       	ldd	r31, Z+7	; 0x07
+ 2a6:	e0 2d       	mov	r30, r0
+ 2a8:	c5 01       	movw	r24, r10
+ 2aa:	09 95       	icall
+ 2ac:	f7 01       	movw	r30, r14
+ 2ae:	81 93       	st	Z+, r24
+ 2b0:	7f 01       	movw	r14, r30
+ 2b2:	ec 15       	cp	r30, r12
+ 2b4:	fd 05       	cpc	r31, r13
+ 2b6:	01 f4       	brne	.+0      	; 0x2b8 <_ZN26SerialRadioFrequencyAPC22014readParametersEv+0x102>
+ 2b8:	6a e0       	ldi	r22, 0x0A	; 10
+ 2ba:	70 e0       	ldi	r23, 0x00	; 0
+ 2bc:	80 e0       	ldi	r24, 0x00	; 0
+ 2be:	90 e0       	ldi	r25, 0x00	; 0
+ 2c0:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC22012setFrequencyEPKc>
+ 2c4:	d8 01       	movw	r26, r16
+ 2c6:	5d 96       	adiw	r26, 0x1d	; 29
+ 2c8:	8c 91       	ld	r24, X
+ 2ca:	61 e0       	ldi	r22, 0x01	; 1
+ 2cc:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC22012setFrequencyEPKc>
+ 2d0:	f8 01       	movw	r30, r16
+ 2d2:	7e 96       	adiw	r30, 0x1e	; 30
+ 2d4:	90 e0       	ldi	r25, 0x00	; 0
+ 2d6:	80 89       	ldd	r24, Z+16	; 0x10
+ 2d8:	81 93       	st	Z+, r24
+ 2da:	9f 5f       	subi	r25, 0xFF	; 255
+ 2dc:	96 30       	cpi	r25, 0x06	; 6
+ 2de:	01 f4       	brne	.+0      	; 0x2e0 <_ZN26SerialRadioFrequencyAPC22014readParametersEv+0x12a>
+ 2e0:	f8 01       	movw	r30, r16
+ 2e2:	85 a9       	ldd	r24, Z+53	; 0x35
+ 2e4:	85 a3       	std	Z+37, r24	; 0x25
+ 2e6:	87 a9       	ldd	r24, Z+55	; 0x37
+ 2e8:	86 a3       	std	Z+38, r24	; 0x26
+ 2ea:	81 ad       	ldd	r24, Z+57	; 0x39
+ 2ec:	87 a3       	std	Z+39, r24	; 0x27
+ 2ee:	83 ad       	ldd	r24, Z+59	; 0x3b
+ 2f0:	80 a7       	std	Z+40, r24	; 0x28
+ 2f2:	0f 90       	pop	r0
+ 2f4:	0f 90       	pop	r0
+ 2f6:	0f 90       	pop	r0
+ 2f8:	0f 90       	pop	r0
+ 2fa:	cf 91       	pop	r28
+ 2fc:	df 91       	pop	r29
+ 2fe:	1f 91       	pop	r17
+ 300:	0f 91       	pop	r16
+ 302:	ff 90       	pop	r15
+ 304:	ef 90       	pop	r14
+ 306:	df 90       	pop	r13
+ 308:	cf 90       	pop	r12
+ 30a:	bf 90       	pop	r11
+ 30c:	af 90       	pop	r10
+ 30e:	08 95       	ret
+
+00000310 <_ZN26SerialRadioFrequencyAPC220C1Ehhhh>:
+ 310:	ef 92       	push	r14
+ 312:	ff 92       	push	r15
+ 314:	0f 93       	push	r16
+ 316:	1f 93       	push	r17
+ 318:	7c 01       	movw	r14, r24
+ 31a:	12 2f       	mov	r17, r18
+ 31c:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC22012setFrequencyEPKc>
+ 320:	80 e0       	ldi	r24, 0x00	; 0
+ 322:	90 e0       	ldi	r25, 0x00	; 0
+ 324:	f7 01       	movw	r30, r14
+ 326:	91 83       	std	Z+1, r25	; 0x01
+ 328:	80 83       	st	Z, r24
+ 32a:	14 8f       	std	Z+28, r17	; 0x1c
+ 32c:	05 8f       	std	Z+29, r16	; 0x1d
+ 32e:	81 2f       	mov	r24, r17
+ 330:	61 e0       	ldi	r22, 0x01	; 1
+ 332:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC22012setFrequencyEPKc>
+ 336:	80 2f       	mov	r24, r16
+ 338:	61 e0       	ldi	r22, 0x01	; 1
+ 33a:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC22012setFrequencyEPKc>
+ 33e:	81 2f       	mov	r24, r17
+ 340:	61 e0       	ldi	r22, 0x01	; 1
+ 342:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC22012setFrequencyEPKc>
+ 346:	80 2f       	mov	r24, r16
+ 348:	61 e0       	ldi	r22, 0x01	; 1
+ 34a:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC22012setFrequencyEPKc>
+ 34e:	1f 91       	pop	r17
+ 350:	0f 91       	pop	r16
+ 352:	ff 90       	pop	r15
+ 354:	ef 90       	pop	r14
+ 356:	08 95       	ret
+
+00000358 <_ZN26SerialRadioFrequencyAPC220C2Ehhhh>:
+ 358:	ef 92       	push	r14
+ 35a:	ff 92       	push	r15
+ 35c:	0f 93       	push	r16
+ 35e:	1f 93       	push	r17
+ 360:	7c 01       	movw	r14, r24
+ 362:	12 2f       	mov	r17, r18
+ 364:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC22012setFrequencyEPKc>
+ 368:	80 e0       	ldi	r24, 0x00	; 0
+ 36a:	90 e0       	ldi	r25, 0x00	; 0
+ 36c:	f7 01       	movw	r30, r14
+ 36e:	91 83       	std	Z+1, r25	; 0x01
+ 370:	80 83       	st	Z, r24
+ 372:	14 8f       	std	Z+28, r17	; 0x1c
+ 374:	05 8f       	std	Z+29, r16	; 0x1d
+ 376:	81 2f       	mov	r24, r17
+ 378:	61 e0       	ldi	r22, 0x01	; 1
+ 37a:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC22012setFrequencyEPKc>
+ 37e:	80 2f       	mov	r24, r16
+ 380:	61 e0       	ldi	r22, 0x01	; 1
+ 382:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC22012setFrequencyEPKc>
+ 386:	81 2f       	mov	r24, r17
+ 388:	61 e0       	ldi	r22, 0x01	; 1
+ 38a:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC22012setFrequencyEPKc>
+ 38e:	80 2f       	mov	r24, r16
+ 390:	61 e0       	ldi	r22, 0x01	; 1
+ 392:	0e 94 00 00 	call	0	; 0x0 <_ZN26SerialRadioFrequencyAPC22012setFrequencyEPKc>
+ 396:	1f 91       	pop	r17
+ 398:	0f 91       	pop	r16
+ 39a:	ff 90       	pop	r15
+ 39c:	ef 90       	pop	r14
+ 39e:	08 95       	ret
 
 SerialRadioFrequency.o:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .group        00000008  00000000  00000000  00000034  2**2
-                  CONTENTS, READONLY, EXCLUDE, GROUP, LINK_ONCE_DISCARD
-  1 .text         0000001a  00000000  00000000  0000003c  2**0
+  0 .text         00000038  00000000  00000000  00000034  2**0
                   CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
-  2 .data         00000000  00000000  00000000  00000056  2**0
-                  CONTENTS, ALLOC, LOAD, DATA
-  3 .bss          00000000  00000000  00000000  00000056  2**0
+  1 .data         00000010  00000000  00000000  0000006c  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, DATA
+  2 .bss          00000000  00000000  00000000  0000007c  2**0
                   ALLOC
-  4 .rodata._ZTV20SerialRadioFrequency 00000010  00000000  00000000  00000056  2**0
-                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
-  5 .comment      00000012  00000000  00000000  00000066  2**0
-                  CONTENTS, READONLY
-
 Disassembly of section .text:
 
 00000000 <_ZN20SerialRadioFrequencyC1Ehh>:
-   0:	cf 93       	push	r28
-   2:	df 93       	push	r29
-   4:	ec 01       	movw	r28, r24
+   0:	0f 93       	push	r16
+   2:	1f 93       	push	r17
+   4:	8c 01       	movw	r16, r24
    6:	20 e0       	ldi	r18, 0x00	; 0
    8:	0e 94 00 00 	call	0	; 0x0 <_ZN20SerialRadioFrequencyC1Ehh>
    c:	80 e0       	ldi	r24, 0x00	; 0
    e:	90 e0       	ldi	r25, 0x00	; 0
-  10:	99 83       	std	Y+1, r25	; 0x01
-  12:	88 83       	st	Y, r24
-  14:	df 91       	pop	r29
-  16:	cf 91       	pop	r28
-  18:	08 95       	ret
+  10:	f8 01       	movw	r30, r16
+  12:	91 83       	std	Z+1, r25	; 0x01
+  14:	80 83       	st	Z, r24
+  16:	1f 91       	pop	r17
+  18:	0f 91       	pop	r16
+  1a:	08 95       	ret
+
+0000001c <_ZN20SerialRadioFrequencyC2Ehh>:
+  1c:	0f 93       	push	r16
+  1e:	1f 93       	push	r17
+  20:	8c 01       	movw	r16, r24
+  22:	20 e0       	ldi	r18, 0x00	; 0
+  24:	0e 94 00 00 	call	0	; 0x0 <_ZN20SerialRadioFrequencyC1Ehh>
+  28:	80 e0       	ldi	r24, 0x00	; 0
+  2a:	90 e0       	ldi	r25, 0x00	; 0
+  2c:	f8 01       	movw	r30, r16
+  2e:	91 83       	std	Z+1, r25	; 0x01
+  30:	80 83       	st	Z, r24
+  32:	1f 91       	pop	r17
+  34:	0f 91       	pop	r16
+  36:	08 95       	ret
