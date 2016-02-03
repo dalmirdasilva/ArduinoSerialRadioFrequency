@@ -11,9 +11,8 @@
 
 #include "SerialRadioFrequencyAPC220.h"
 
-SerialRadioFrequencyAPC220::SerialRadioFrequencyAPC220(unsigned char rxPin,
-        unsigned char txPin, unsigned char enPin, unsigned char setPin) :
-        SerialRadioFrequency(rxPin, txPin) {
+SerialRadioFrequencyAPC220::SerialRadioFrequencyAPC220(unsigned char rxPin, unsigned char txPin, unsigned char enPin, unsigned char setPin)
+        : SerialRadioFrequency(rxPin, txPin), airRate(3), power(9), uartRate(3), seriesCheckout(0) {
     this->enPin = enPin;
     this->setPin = setPin;
     pinMode(enPin, OUTPUT);
@@ -57,8 +56,7 @@ unsigned char SerialRadioFrequencyAPC220::getUartRate() {
     return this->uartRate;
 }
 
-void SerialRadioFrequencyAPC220::setSeriesCheckout(
-        unsigned char seriesCheckout) {
+void SerialRadioFrequencyAPC220::setSeriesCheckout(unsigned char seriesCheckout) {
     this->seriesCheckout = seriesCheckout;
 }
 
@@ -67,7 +65,7 @@ unsigned char SerialRadioFrequencyAPC220::getSeriesCheckout() {
 }
 
 void SerialRadioFrequencyAPC220::readParameters() {
-    unsigned char cmd[] = {0x52, 0x44, 0x0D, 0x0A};
+    unsigned char cmd[] = { 0x52, 0x44, 0x0D, 0x0A };
     digitalWrite(this->enPin, HIGH);
     digitalWrite(this->setPin, HIGH);
     delay(50);
@@ -94,8 +92,7 @@ void SerialRadioFrequencyAPC220::readParameters() {
 }
 
 void SerialRadioFrequencyAPC220::writeParameters() {
-    unsigned char cmd[] = {0x57, 0x52, 0x20, 0x34, 0x33, 0x34, 0x30, 0x30, 0x30,
-            0x20, 0x33, 0x20, 0x39, 0x20, 0x30, 0x20, 0x30, 0x0D, 0x0A};
+    unsigned char cmd[] = { 0x57, 0x52, 0x20, 0x34, 0x33, 0x34, 0x30, 0x30, 0x30, 0x20, 0x33, 0x20, 0x39, 0x20, 0x30, 0x20, 0x30, 0x0D, 0x0A };
     digitalWrite(this->enPin, HIGH);
     digitalWrite(this->setPin, HIGH);
     delay(50);

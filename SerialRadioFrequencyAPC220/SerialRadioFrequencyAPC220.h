@@ -12,7 +12,7 @@
 #include <Arduino.h>
 #include <SerialRadioFrequency.h>
 
-class SerialRadioFrequencyAPC220 : public SerialRadioFrequency {
+class SerialRadioFrequencyAPC220: public SerialRadioFrequency {
 
     /**
      * The EN pin
@@ -55,6 +55,7 @@ class SerialRadioFrequencyAPC220 : public SerialRadioFrequency {
     /**
      * The device seriesCheckout.
      * 
+     * Series checkout:0 means no check,1 means even parity,2 means odd parity.
      * Disable, Even Parity, Odd Parity. Default: Disable.
      */
     unsigned char seriesCheckout;
@@ -66,8 +67,10 @@ class SerialRadioFrequencyAPC220 : public SerialRadioFrequency {
 
 public:
 
-    SerialRadioFrequencyAPC220(unsigned char rxPin, unsigned char txPin,
-            unsigned char enPin, unsigned char setPin);
+    SerialRadioFrequencyAPC220(unsigned char rxPin, unsigned char txPin, unsigned char enPin, unsigned char setPin);
+
+    virtual ~SerialRadioFrequencyAPC220() {
+    }
 
     /**
      * Sets RF frequency.

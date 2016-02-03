@@ -12,9 +12,12 @@
 #include <Arduino.h>
 #include <SoftwareSerial.h>
 
-class SerialRadioFrequency : public SoftwareSerial {
+class SerialRadioFrequency: public SoftwareSerial {
 
 public:
+
+    virtual ~SerialRadioFrequency() {
+    }
 
     SerialRadioFrequency(unsigned char rxPin, unsigned char txPin);
 };
