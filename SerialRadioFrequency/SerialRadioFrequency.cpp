@@ -11,9 +11,4 @@
 
 #include "SerialRadioFrequency.h"
 
-SerialRadioFrequency::SerialRadioFrequency(unsigned char rxPin,
-        unsigned char txPin) :
-        SoftwareSerial(rxPin, txPin) {
-}
-
 #endif /* __ARDUINO_DRIVER_SERIAL_RADIO_FREQUENCY_CPP__ */

@@ -37,6 +37,8 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ArduinoCore/libraries/SoftwareSerial/src}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/SerialRadioFrequency}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/SerialRadioFrequencyAPC220}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ArduinoAttentionDevice/SoftwareSerialAttentionDevice}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ArduinoAttentionDevice/AttentionDevice}&quot;"/>
 								</option>
 								<inputType id="de.innot.avreclipse.cppcompiler.input.507117624" superClass="de.innot.avreclipse.cppcompiler.input"/>
 							</tool>

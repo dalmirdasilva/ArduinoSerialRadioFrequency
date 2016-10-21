@@ -12,7 +12,7 @@
 #include "SerialRadioFrequencyAPC220.h"
 
 SerialRadioFrequencyAPC220::SerialRadioFrequencyAPC220(unsigned char rxPin, unsigned char txPin, unsigned char enPin, unsigned char setPin)
-        : SerialRadioFrequency(rxPin, txPin), airRate(3), power(9), uartRate(3), seriesCheckout(0) {
+        : SerialRadioFrequency(), SoftwareSerial(rxPin, txPin), airRate(3), power(9), uartRate(3), seriesCheckout(0) {
     this->enPin = enPin;
     this->setPin = setPin;
     pinMode(enPin, OUTPUT);

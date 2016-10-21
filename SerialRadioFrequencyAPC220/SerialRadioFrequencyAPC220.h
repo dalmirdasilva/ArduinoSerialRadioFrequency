@@ -11,8 +11,9 @@
 
 #include <Arduino.h>
 #include <SerialRadioFrequency.h>
+#include <SoftwareSerial.h>
 
-class SerialRadioFrequencyAPC220: public SerialRadioFrequency {
+class SerialRadioFrequencyAPC220: public SerialRadioFrequency, public SoftwareSerial {
 
     /**
      * The EN pin
