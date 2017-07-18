@@ -22,7 +22,7 @@ public:
      *
      * @param rate          The UART rate.
      */
-    virtual void setUartRate(unsigned char rate) = 0;
+    virtual bool setUartRate(unsigned char rate) = 0;
 
     /**
      * Gets the UART rate.

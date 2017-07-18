@@ -134,7 +134,7 @@ public:
      * 
      * @param rate          The UART rate.
      */
-    void setUartRate(unsigned char rate);
+    bool setUartRate(unsigned char rate);
 
     /**
      * Gets the UART rate.

@@ -48,8 +48,9 @@ void SerialRadioFrequencyAPC220::setPower(unsigned char power) {
     this->power = power;
 }
 
-void SerialRadioFrequencyAPC220::setUartRate(unsigned char uartRate) {
+bool SerialRadioFrequencyAPC220::setUartRate(unsigned char uartRate) {
     this->uartRate = uartRate;
+    return true;
 }
 
 unsigned char SerialRadioFrequencyAPC220::getUartRate() {

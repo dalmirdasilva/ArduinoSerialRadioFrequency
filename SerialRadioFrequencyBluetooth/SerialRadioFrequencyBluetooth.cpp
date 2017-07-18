@@ -17,7 +17,7 @@ SerialRadioFrequencyBluetooth::SerialRadioFrequencyBluetooth(unsigned char rxPin
 bool SerialRadioFrequencyBluetooth::setUartRate(unsigned char rate) {
     boudRate = rate;
     print("AT+BAUD");
-    const char cmd[] = "1";
+    char cmd[] = "1";
     cmd[0] += rate % 6;
     return sendCommandExpecting(cmd, "OK");
 }
@@ -29,6 +29,13 @@ unsigned char SerialRadioFrequencyBluetooth::getUartRate() {
 bool SerialRadioFrequencyBluetooth::setDeviceName(const char *name) {
     print("AT+NAME");
     return sendCommandExpecting(name, "OK");
+}
+
+bool SerialRadioFrequencyBluetooth::getDeviceName(char *name) {
+    bool ok = sendCommandExpecting("AT+NAME", "+NAME");
+    const *char resp = getLastResponse();
+    strcpy(name, &(resp[6]));
+    return ok;
 }
 
 bool SerialRadioFrequencyBluetooth::setDevicePin(const char *pin) {

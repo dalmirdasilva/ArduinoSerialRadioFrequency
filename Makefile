@@ -1,5 +1,5 @@
 ARDUINO_LIB_PATH=~/Arduino/libraries
-LIB_LIST=SerialRadioFrequency SerialRadioFrequencyAPC220
+LIB_LIST=SerialRadioFrequency SerialRadioFrequencyAPC220 SerialRadioFrequencyBluetooth
 SOURCE_PATH=`pwd`
 
 all: 

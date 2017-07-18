@@ -48,6 +48,13 @@ public:
     bool setDeviceName(const char *name);
 
     /**
+     * Get bluetooth device name
+     *
+     * @param char* Device name
+     */
+    bool getDeviceName(char* name);
+
+    /**
      * Set bluetooth device PIN
      *
      * @param const char* Device pin
